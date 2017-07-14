@@ -25,7 +25,6 @@ existing `~/.tmux.conf` first)
 $ cd
 $ git clone https://github.com/travisjiang/.tmux.git
 $ ln -s -f .tmux/.tmux.conf
-$ cp .tmux/.tmux.conf.local .
 ```
 
 Then proceed to [customize] your `~/.tmux.conf.local` copy.
@@ -38,10 +37,16 @@ list of key bindings:
   - `<prefix> c` means you have to hit <kbd>Ctrl</kbd> + <kbd>a</kbd> or <kbd>Ctrl</kbd> + <kbd>b</kbd> followed by <kbd>c</kbd>
   - `<prefix> C-c` means you have to hit <kbd>Ctrl</kbd> + <kbd>a</kbd> or <kbd>Ctrl</kbd> + <kbd>b</kbd> followed by <kbd>Ctrl</kbd> + <kbd>c</kbd>
 
+File List
+--------
+ - `.tmux.conf` conf from gpakoza, travis update
+ - `.tmux.conf.local` conf from gpakoza, travis update
+ - `.travis.tmux.conf` travis add config
+
 Travis Customize
 --------
 
- - `<prefix> y` copy tmux paster-buffer to system Clipboard
+ - `set -g mode-keys vi` Use vi key bindings in Copy-Mode
 
 [gpakoza/.tmux](https://github.com/travisjiang/.tmux) Features
 --------
