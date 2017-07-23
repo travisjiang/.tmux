@@ -1,0 +1,45 @@
+#!/bin/sh
+
+cmd=$(which tmux) # tmux path
+session=coding    # session name
+
+if [ -z $cmd ]; then
+  echo "You need to install tmux."
+  exit 1
+fi
+
+$cmd has -t $session
+
+if [ $? != 0 ]; then
+  # setup octoly session
+  $cmd new-session -s $session -d -n main
+  $cmd send-keys "cd" Enter
+
+  $cmd split-window -h -p 50
+  $cmd send-keys "cd ~/github" Enter
+  $cmd send-keys "df -h" Enter
+  $cmd split-window -v -p 50
+  $cmd send-keys "cd ~/github" Enter
+  $cmd send-keys 'activate3.5' Enter
+  $cmd send-keys 'python' Enter
+
+  # Select vim pane
+  $cmd select-pane -t 1
+
+  # create second window
+  $cmd new-window -n tmp
+  $cmd send-keys 'cd ~/github/others/text_classification' Enter
+
+  # create third window
+  $cmd new-window -n git
+  $cmd send-keys 'cd ~/github' Enter
+  $cmd send-keys 'activate3.5' Enter
+
+  # Optional step, reselect window 1 (the one with vim)
+  $cmd select-window -t main
+
+fi
+
+$cmd att -t $session
+
+exit 0

@@ -25,6 +25,8 @@ existing `~/.tmux.conf` first)
 $ cd
 $ git clone https://github.com/travisjiang/.tmux.git
 $ ln -s -f .tmux/.tmux.conf
+$ mkdir bin
+$ ln -s .tmux/tmux-start-home ~/bin/tmux-start  #optional, for open your windows automatic
 ```
 
 Then proceed to [customize] your `~/.tmux.conf.local` copy.
@@ -42,6 +44,8 @@ File List
  - `.tmux.conf` conf from gpakoza, travis update
  - `.tmux.conf.local` conf from gpakoza, travis update
  - `.travis.tmux.conf` travis add config
+ - `tmux-start-tp` travis automatic openning tmux in tp
+ - `tmux-start-home` travis automatic openning tmux at home
 
 Travis Customize
 --------
